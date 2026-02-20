@@ -14,8 +14,8 @@ class Feedback(BaseModel):
     message:str
 
 class Feedback2(BaseModel):
-    name: str = Field(..., min_length=2, ma_length=50)
-    message:str = Field(..., min_length=10, ma_length=500)
+    name: str = Field(..., min_length=2, max_length=50)
+    message:str = Field(..., min_length=10, max_length=500)
     @field_validator('message')
     @classmethod
     def check_message(cls, v: str) -> str:
